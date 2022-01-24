@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+html, body {
+    margin: 0;
+}
+
+.title{
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-bottom: 3px solid white;
+    background: rgb(133, 172, 76);
+    opacity: 0.7;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.application_form{
+    width: 90%;
+    height: 80%;
+    position: relative;
+    border: 4px solid rgb(75, 223, 75);
+    border-radius: 10px;
+    top: 30px;
+    left: 30px;
+    padding-left: 5rem;
+    font-weight: bold; 
+}
+
+#name {
+    position: relative;
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+#phone {
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+#date {
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+#gender {
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+
+#city{
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1 style="color:white" id="apply" onmouseover="mouseOver()" onmouseout="mouseOut()"> Application form </h1>
+        </div>
+
+        <div class="application_form">
+            <form name = "form" action="form_ok.php" onsubmit="return validationForm()"  method="post">
+                <br>
+                <label for="name"> <span>*</span>Name: </label>
+                <input type="text" id="name" name="name" placeholder=" Ex) 홍길동" required >
+                <br><br>
+
+                <label for="phone"> <span>*</span>Phone-number:  </label>
+                <input type="text" id="phone" name="phone" placeholder=" 000-0000-0000 " maxlength="13" required>
+                <br><br>
+
+                <label for="date"> Date: </label>
+                <input type="date" id="date" name="date">
+                <br><br>
+
+                <label for="gener"> Gender: </label>
+                <input type="radio" id="gender" name="gender" value="M" checked> Man
+                <input type="radio" id="gender" name="gender" value="W"> Woman 
+                <br><br>
+
+                <label for="local"> Home: </label>
+                <select name="city" id="city" onchange="onChange()">
+                    <option value="경기도"> 경기도 </option>
+                    <option value="강원도"> 강원도 </option>
+                    <option value="충청도"> 충청도 </option>
+                    <option value="경상도"> 경상도 </option>
+                    <option value="전라도"> 전라도 </option>
+                </select>
+
+                <p id="demo"></p>
+                <br>
+
+                <label for="hobby"> Hobby: </label>
+                <input type="checkbox" id="hobby" name="hobby1" value="영화감상" > 영화감상
+                <input type="checkbox" id="hobby" name="hobby2" value="코딩하기" > 코딩하기
+                <input type="checkbox" id="hobby" name="hobby3" value="운동(축구, 농구)" > 운동(축구, 농구)
+                <input type="checkbox" id="hobby" name="hobby4" value="책 읽기" > 책 읽기
+                <br><br>
+
+                <label for="Intro"> Motive for apply </label>
+                <br>
+                <textarea name="content" cols=70 rows=5></textarea>
+                <br><br>
+
+                <input type="submit" value="Save"> <input type="reset" value="Rewrite">
+    
+            </form>
+
+            <script>
+                function onChange() {
+                    var x = document.getElementById("city").value;
+                    document.getElementById("demo").innerHTML = "You selected: " + x;
+                }
+
+                function mouseOver() {
+                    document.getElementById("apply").style.color = "red";
+                }
+
+                function mouseOut() {
+                    document.getElementById("apply").style.color = "black";
+                }
+
+                function validationForm() {
+                    var name = documnet.form.name;
+                    if(name.value == " ") {
+                        alert("Input your Name");
+                        name.focus();
+                        return false;
+                    }
+            
+                    var phone = document.form.phone;
+                    if(phone.value == "") {
+                        alert("Input your phone number");
+                        phone.focus();
+                        return false;
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+gcc hw3_1.c -o langdump
+./langdump grammer1.txt 6
+
+gcc hw3_2.c -o langdump
+./langdump grammer2.txt 10
+
+gcc hw3_3.c -o langdump
+./langdump grammer3.txt 5

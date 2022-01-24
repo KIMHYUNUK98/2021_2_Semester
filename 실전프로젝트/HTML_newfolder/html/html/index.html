@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(189, 189, 189, 0.3), rgba(160, 160, 160, 0.7)), url("http://m.church.handong.edu/user/saveDir/board/www63/100_1522578443_0.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: inherit;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.gettext{
+    margin-top: 70px;
+}
+
+#navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    display: block;
+    transition: top 0.3s;
+}
+
+#navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#navbar a:hover {
+    background-color: rgb(76, 214, 83);
+}
+
+
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+    }
+}
+
+</style>
+</head>
+<body>
+    
+    <div id="navbar">
+        <a href="#" onclick="reStyle(0);return false"><i class="fa fa-fw fa-home"></i> Home</a> 
+        <a href="#" onclick="reStyle(1);return false"><i class="fa fa-fw fa-search"></i> Search</a> 
+        <a href="#" onclick="reStyle(2);return false"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+        <a href="#" onclick="reStyle(3);return false"><i class="fa fa-fw fa-envelope"></i> Member</a> 
+        <a href="#" onclick="reStyle(4);return false"><i class="fa fa-fw fa-user"></i> Login</a>
+    </div>
+
+    <div class="hero-image">
+            <div class="px-4 py-5 my-1 text-center">
+                <h1 class="gettext display-5 fw-bold text-center text-white m">CHAMBER & CHOIR</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 text-center text-white"> 매주 주일 채플에서 하나님께 올려드리는 찬양과 연주를 드립니다</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <img src="https://i.ytimg.com/vi/vbYm5OJua4c/maxresdefault.jpg" alt=" 2018 드림" style="width:100%" onclick="myFunction(this);">
+                </div>
+                <div class="column">
+                    <img src="https://www.handong.edu/handongin/38/images/sub_con_05.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
+                </div>
+                <div class="column">
+                    <img src="https://i.ytimg.com/vi/EFucyOVVEbA/maxresdefault.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+                </div>
+                <div class="column">
+                    <img src="" alt="Lights" style="width:100%" onclick="myFunction(this);">
+                </div>
+            </div>
+        
+            <div class="container">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <img id="expandedImg" style="width:100%">
+                <div id="imgtext"></div>
+            </div>
+    </div>
+
+    
+
+<script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-50px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+
+        function myFunction(imgs) {
+            var expandImg = document.getElementById("expandedImg");
+            var imgText = document.getElementById("imgtext");
+            expandImg.src = imgs.src;
+            imgText.innerHTML = imgs.alt;
+            expandImg.parentElement.style.display = "block";
+        }
+
+        function reStyle(n) {
+            noStyles()
+            document.styleSheets[n].disabled = false;
+        }
+</script>
+    
+</body>
+</html>

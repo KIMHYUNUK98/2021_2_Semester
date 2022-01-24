@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stack</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+<style>
+body, html{
+    background: cornsilk;
+    width: 100%; 
+}
+</style>
+
+</head>
+<body>
+    <!-- 페이지 전체 Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- 배너 -->
+        <div class="banner">
+            <div class="navbar w3-white w3-wide w3-padding w3-card-4 w3-round-xlarge">
+                <a href="#home" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue"><b>STACK</b> Program</a>
+                <!-- 오른쪽으로 정렬하고 작아지면 숨기는 기능 -->
+                <div class="w3-right w3-hide-small">
+                    <a href="#projects" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue w3-mobile">Projects</a>
+                    <a href="#contact" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue w3-mobile">Contact</a>
+                    <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue w3-mobile">About</a>
+                    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue w3-mobile" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 왼쪽 사이드 바 -->
+        
+        <div class="row">
+            <!-- <div class="col-sm-1">
+                <div class="w3-margin-top">
+                    <nav class="w3-bar-block w3-white w3-collapse w3-card-4 w3-round-xlarge" style="z-index: 3; width: 150px; height: 1200px; display: block;" id="mySidebar">
+                        <div class="w3-container w3-display-container w3-padding-16">
+                            <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+                            <h3 class="w3-wide"><b>LOGO</b></h3>
+                        </div>
+                        <div class="w3-padding-64 w3-large w3-text-black" style="font-weight:bold">
+                            <a href="#" class="w3-bar-item w3-button">Member</a>
+                            <a href="#" class="w3-bar-item w3-button">Project</a>
+                            <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+                                TodoList <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-show">
+                                <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
+                                <a href="#" class="w3-bar-item w3-button">Relaxed</a>
+                                <a href="#" class="w3-bar-item w3-button">Bootcut</a>
+                                <a href="#" class="w3-bar-item w3-button">Straight</a>
+                            </div>
+                                <a href="#" class="w3-bar-item w3-button">Jackets</a>
+                                <a href="#" class="w3-bar-item w3-button">Gymwear</a>
+
+                        </div>
+                        <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+                        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+                        <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
+                    </nav>
+
+                <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor: pointer; display: none;" title="close side menu" id="myOverlay"></div>
+                </div>
+            </div> -->
+        
+        
+
+        <!-- 가운데 메인 화면 구성 -->
+            <div class="col-sm-8 w3-margin-top">
+                
+                <!-- 메인 화면 베너 구성 -->
+                <div class="w3-white w3-text-grey w3-card-4 w3-round-xlarge" style="width:100%; height: 100%;">
+                    <div class="w3-bar w3-black w3-round-xlarge">
+                        <div class="w3-bar-item w3-hover-red">
+                            <i class="fa fa-user w3-margin-right w3-large"></i>
+                            <b>User</b></div>
+                        <div class="w3-bar-item w3-hover-red">
+                            <i class="fa fa-calendar-check-o w3-margin-right w3-large"></i>
+                            <b>Schedule</b></div>
+                        <div class="w3-bar-item w3-hover-red">
+                            <i class="fa fa-check w3-margin-right w3-large"></i>
+                            <b>Todolist</b></div>
+                    
+
+                        <!-- 메인 화면 사진 들어가는 부분 -->
+                        <div class="w3-display-container">
+                            <img src="http://m.church.handong.edu/user/saveDir/board/www63/100_1522578443_0.jpg"style="width:100%" alt="Avatar">
+                            <div class="w3-display-bottomleft w3-container w3-text-white">
+                                <h1> HANDONG GLOBAL STACK PROGRAM </h1>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="w3-containe w3-margin">
+                        <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
+                        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
+                        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
+                        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
+                        <hr>
+
+                        <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                        <p>Adobe Photoshop</p>
+                        <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+                        </div>
+                        
+                        <p>Photography</p>
+                        <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                                <div class="w3-center w3-text-white">80%</div>
+                            </div>
+                        </div>
+                        
+                        <p>Illustrator</p>
+                        <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+                        </div>
+                        
+                        <p>Media</p>
+                        <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+                        </div>
+                        <br>
+
+                        <p class="w3-large w3-text-theme"><b><i class="fa fa-calendar fa-fw w3-margin-right w3-text-teal"></i>Schedular</b></p>
+                        
+                        <p>English</p>
+                        <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                        </div>
+                    
+                        <p>Spanish</p>
+                        <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
+                        </div>
+                    
+                        <p>German</p>
+                        <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+                        </div>
+                        <br>
+                    </div>
+                </div><br>
+            </div>
+            <!-- End Left Column -->
+
+            <div class="col-sm-4 w3-margin-top"> 
+                <div class="w3-container w3-card-4 w3-white w3-margin-bottom w3-round-xlarge">
+                    
+                    <h2 class="w3-text-black w3-padding-16"><i class="fa fa-list-ul w3-margin-right  w3-text-black"></i><b>TodoList<b</h2>
+                
+                    <div class="w3-container w3-card w3-round-xlarge w3-margin-bottom w3-margin-top" id="page-content">
+                        <h4 class="card-title"> Check your TodoList</h4>
+                        
+                        <div class="add-items d-flex"> 
+                            <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> 
+                            <button class="add btn btn-primary font-weight-bold todo-list-add-btn">ADD</button> 
+                        </div>
+                        
+                        <div class="list-wrapper">
+                            <ul class="d-flex flex-column-reverse todo-list">
+                                <li>
+                                    <div class="form-check"> 
+                                        <label class="form-check-label"> 
+                                        <input class="checkbox" type="checkbox"> For what reason would it be advisable. 
+                                        <i class="input-helper"></i>
+                                        </label> 
+                                    </div> 
+                                        <i class="remove fas fa-trash-alt fa-xs"></i>
+                                </li>
+                                
+                                <li class="completed">
+                                    <div class="form-check"> 
+                                        <label class="form-check-label"> 
+                                        <input class="checkbox" type="checkbox" checked=""> For what reason would it be advisable for me to think. 
+                                        <i class="input-helper"></i>
+                                        </label> 
+                                    </div>
+                                        <i class="remove fas fa-trash-alt fa-xs"></i>
+                                </li>
+
+                                <li>
+                                    <div class="form-check"> 
+                                        <label class="form-check-label"> 
+                                        <input class="checkbox" type="checkbox"> it be advisable for me to think about business content? 
+                                        <i class="input-helper"></i>
+                                        </label> 
+                                    </div> 
+                                    <i class="remove fas fa-trash-alt fa-xs"></i>
+                                </li>
+
+                                <li>
+                                    <div class="form-check"> 
+                                        <label class="form-check-label"> 
+                                            <input class="checkbox" type="checkbox"> Print Statements all 
+                                            <i class="input-helper"></i>
+                                        </label> 
+                                    </div> 
+                                    <i class="remove fas fa-trash-alt fa-xs"></i>
+                                </li>
+
+                                <li class="completed">
+                                    <div class="form-check"> 
+                                        <label class="form-check-label"> 
+                                            <input class="checkbox" type="checkbox" checked=""> Call Rampbo 
+                                            <i class="input-helper"></i>
+                                        </label> 
+                                    </div> 
+                                    <i class="remove fas fa-trash-alt fa-xs"></i>
+                                </li>
+
+                                <li>
+                                    <div class="form-check"> 
+                                        <label class="form-check-label"> 
+                                            <input class="checkbox" type="checkbox"> Print bills 
+                                            <i class="input-helper"></i>
+                                        </label> 
+                                    </div> 
+                                    <i class="remove fas fa-trash-alt fa-xs"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
+                    <!-- 오른쪽 화면 두 번째 구성 -->
+                    <div class="w3-container w3-card w3-white w3-round-xlarge">
+                        <section class="chat-area">
+                            <header>
+                                <a href="#" class="back-icon"><i class="fa fa-arrow-left"></i></a>
+                                <img src="img.jpg" alt="">
+                                    <div class="details">
+                                        <span>Coding Nepal</span>
+                                        <p>Active now</p>
+                                    </div>
+                            </header>
+                            <div class="chat-box">
+                                <div class="chat outgoing">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                                <div class="chat incoming">
+                                    <img src="img.jpg" alt="">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                                <div class="chat outgoing">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                                <div class="chat incoming">
+                                    <img src="img.jpg" alt="">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                                <div class="chat outgoing">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                                <div class="chat incoming">
+                                    <img src="img.jpg" alt="">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                                <div class="chat outgoing">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                                <div class="chat incoming">
+                                    <img src="img.jpg" alt="">
+                                    <div class="details">
+                                        <p>Lorem ispum dolor sit amet. conseture adipgicng</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="#" class="typing-area">
+                                <input type="text" placeholder="Type a message here...">
+                                <button><i class="fa fa-telegram-plne"></i></button>
+                            </form>
+                        </section>
+                    </div>
+                    <!-- End Right Column -->
+                </div>
+            </div>
+
+            <!-- Bottom 구성하기 -->
+            <footer class="w3-container w3-card-4 w3-teal w3-center w3-margin-top w3-margin-bottom w3-round-xlarge" style="width: 100%;">
+                <p>Find me on social media.</p>
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+                <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+            </footer>
+
+    </div>
+
+    <script>
+
+(function($) {
+    'use strict';
+    $(function() {
+        var todoListItem = $('.todo-list');
+        var todoListInput = $('.todo-list-input');
+        $('.todo-list-add-btn').on("click", function(event) {
+            event.preventDefault();
+    
+            var item = $(this).prevAll('.todo-list-input').val();
+    
+            if (item) {
+                todoListItem.append("<li><div class='form-check'><label class='form-check-label'><input class='checkbox' type='checkbox' />" + item + "<i class='input-helper'></i></label></div><i class='remove mdi mdi-close-circle-outline'></i></li>");
+                todoListInput.val("");
+            }
+        });
+    
+    todoListItem.on('change', '.checkbox', function() {
+        if ($(this).attr('checked')) {
+            $(this).removeAttr('checked');
+        } else {
+            $(this).attr('checked', 'checked');
+        }
+    
+        $(this).closest("li").toggleClass('completed');
+    
+    });
+    
+    todoListItem.on('click', '.remove', function() {
+        $(this).parent().remove();
+    });
+});
+    })(jQuery);
+        // Accordion 
+        function myAccFunc() {
+            var x = document.getElementById("demoAcc");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+        
+        // Click on the "Jeans" link on page load to open the accordion for demo purposes
+        document.getElementById("myBtn").click();
+        
+        
+        // Open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        </script>
+
+
+
+</body>
+</html>
